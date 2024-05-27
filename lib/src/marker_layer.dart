@@ -83,7 +83,10 @@ class _MarkerLayerState extends State<MarkerLayer>
             )) continue;
 
             // Apply map camera to marker position
-            final pos = pxPoint.subtract(map.pixelOrigin);
+            final pos = pxPoint - Point(
+                map.pixelOrigin.x.toDouble(),
+                map.pixelOrigin.y.toDouble(),
+            );
 
             var markerChild = m.child;
             if (widget.layerOptions.selectedMarkerBuilder != null &&
